@@ -194,14 +194,27 @@
 
   @media (max-width: 860px){
     .navlinks{ display:none; }
-    .bg-outline{ display:none; }
     .side-icons{ display:none; }
-    .hero-visual{ height:230px; }
+    .hero-visual{
+      display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+      height:auto; overflow:visible; padding:18px 0 22px;
+    }
+    .bg-outline{
+      position:relative; inset:auto; display:block; width:100%;
+      text-align:center; font-size:42px; margin-bottom:4px;
+      -webkit-text-stroke:1.5px rgba(255,178,90,.5);
+    }
     .hero-actions{ display:none; }
-    .circle.orange{ display:none; }
-    .circle, .photo-slot{ width:190px; height:190px; }
-    .photo-slot.p1{ margin-left:-198px; }
-    .photo-slot.p2{ margin-left:8px; }
+    .circle-cluster{ position:relative; width:100%; height:135px; margin-top:6px; }
+    .circle.orange{
+      display:flex; left:50%; margin-left:-67.5px; top:40%;
+      padding:0; align-items:flex-start; justify-content:center;
+    }
+    .circle.orange .arrow{ display:none; }
+    .circle.orange p{ display:none; }
+    .circle, .photo-slot{ width:135px; height:135px; }
+    .photo-slot.p1{ margin-left:-155px; }
+    .photo-slot.p2{ margin-left:20px; }
     .cards{
       display:flex; grid-template-columns:unset; overflow-x:auto; overflow-y:visible; scroll-snap-type:x mandatory;
       scrollbar-width:none; gap:12px; margin:16px -4px 0; padding:6px 4px 10px;
@@ -217,17 +230,21 @@
     .card-copy h4{ font-size:13px; max-width:14ch; }
   }
   @media (max-width:600px){
-    .hero-visual{ height:180px; }
-    .circle, .photo-slot{ width:145px; height:145px; }
-    .photo-slot.p1{ margin-left:-152px; }
-    .photo-slot.p2{ margin-left:7px; }
+    .bg-outline{ font-size:32px; }
+    .circle-cluster{ height:110px; }
+    .circle, .photo-slot{ width:110px; height:110px; }
+    .circle.orange{ margin-left:-55px; }
+    .photo-slot.p1{ margin-left:-126px; }
+    .photo-slot.p2{ margin-left:17px; }
     .cards .card{ width:190px; }
   }
   @media (max-width:380px){
-    .hero-visual{ height:150px; }
-    .circle, .photo-slot{ width:120px; height:120px; }
-    .photo-slot.p1{ margin-left:-126px; }
-    .photo-slot.p2{ margin-left:6px; }
+    .bg-outline{ font-size:26px; }
+    .circle-cluster{ height:90px; }
+    .circle, .photo-slot{ width:90px; height:90px; }
+    .circle.orange{ margin-left:-45px; }
+    .photo-slot.p1{ margin-left:-104px; }
+    .photo-slot.p2{ margin-left:14px; }
     .cards .card{ width:170px; padding:14px; }
   }
 
@@ -380,14 +397,14 @@
   }
 
   @media (max-width:860px){
-    .bento-grid{ grid-template-columns:1fr; width:100%; }
-    .bento-left{ width:100%; }
+    .bento-grid{ grid-template-columns:1fr; width:100%; gap:14px; }
+    .bento-left{ width:100%; gap:16px; }
     .bento-copy{ order:1; }
-    .carousel-card{ order:2; margin-top:8px; margin-bottom:8px; }
-    .bento-right{ order:3; min-height:260px; padding:18px; width:100%; box-sizing:border-box; margin:0; }
+    .carousel-card{ order:2; margin-top:0; margin-bottom:0; }
+    .bento-right{ order:3; min-height:200px; padding:18px; width:100%; box-sizing:border-box; margin:0; }
     .float-chip.c1{ top:20px; right:16px; }
     .float-chip.c2{ bottom:auto; top:64px; left:16px; }
-    .img-caption{ margin-top:70px; }
+    .img-caption{ margin-top:auto; }
   }
   @media (max-width:600px){
     .bento-stage{ padding:18px; }
@@ -473,15 +490,18 @@
     --photo: url('images/1.jpg');
     position:relative;
     display:grid; grid-template-columns:repeat(6,1fr); grid-template-rows:repeat(4,1fr);
-    gap:8px; aspect-ratio:3/2.7; border-radius:8px;
+    gap:8px; aspect-ratio:3/3; border-radius:8px;
   }
   .mosaic-photo .tile{
-    border-radius:16px; background-image:var(--photo); background-size:600% 400%;
+    border-radius:16px; background-image:var(--photo); background-size:600% 472%;
   }
-  .mosaic-photo .tile.pill{ border-radius:999px; }
+  .mosaic-photo .tile.pill{
+    border-radius:999px;
+  }
 
   @media (max-width:860px){
     .mosaic-grid-wrap{ grid-template-columns:1fr; }
+    .mosaic-photo{ width:62%; margin:0; justify-self:start; }
     .mosaic-navlinks a{ display:none; }
     .mosaic-actions{ gap:8px; flex-wrap:nowrap; }
     .btn-red{ padding:11px 16px; font-size:12px; white-space:nowrap; }
@@ -994,30 +1014,24 @@
     </div>
 
     <div class="mosaic-photo reveal-el tilt-el" data-tilt-max="3">
-        <div class="tile" style="background-position:0% 0%;"></div>
-        <div class="tile" style="background-position:20% 0%;"></div>
-        <div class="tile" style="background-position:40% 0%;"></div>
-        <div class="tile" style="background-position:60% 0%;"></div>
-        <div class="tile pill" style="background-position:80% 0%;"></div>
-        <div class="tile pill" style="background-position:100% 0%;"></div>
-        <div class="tile" style="background-position:0% 33%;"></div>
-        <div class="tile" style="background-position:20% 33%;"></div>
-        <div class="tile" style="background-position:40% 33%;"></div>
-        <div class="tile" style="background-position:60% 33%;"></div>
-        <div class="tile pill" style="background-position:80% 33%;"></div>
-        <div class="tile pill" style="background-position:100% 33%;"></div>
-        <div class="tile" style="background-position:0% 67%;"></div>
-        <div class="tile" style="background-position:20% 67%;"></div>
-        <div class="tile" style="background-position:40% 67%;"></div>
-        <div class="tile" style="background-position:60% 67%;"></div>
-        <div class="tile pill" style="background-position:80% 67%;"></div>
-        <div class="tile pill" style="background-position:100% 67%;"></div>
-        <div class="tile" style="background-position:0% 100%;"></div>
-        <div class="tile" style="background-position:20% 100%;"></div>
-        <div class="tile" style="background-position:40% 100%;"></div>
-        <div class="tile" style="background-position:60% 100%;"></div>
-        <div class="tile pill" style="background-position:80% 100%;"></div>
-        <div class="tile pill" style="background-position:100% 100%;"></div>
+        <div class="tile" style="grid-column:1;grid-row:1;background-position:0% 0%;"></div>
+        <div class="tile" style="grid-column:2;grid-row:1;background-position:20% 0%;"></div>
+        <div class="tile" style="grid-column:3;grid-row:1;background-position:40% 0%;"></div>
+        <div class="tile" style="grid-column:4;grid-row:1;background-position:60% 0%;"></div>
+        <div class="tile" style="grid-column:1;grid-row:2;background-position:0% 33%;"></div>
+        <div class="tile" style="grid-column:2;grid-row:2;background-position:20% 33%;"></div>
+        <div class="tile" style="grid-column:3;grid-row:2;background-position:40% 33%;"></div>
+        <div class="tile" style="grid-column:4;grid-row:2;background-position:60% 33%;"></div>
+        <div class="tile" style="grid-column:1;grid-row:3;background-position:0% 67%;"></div>
+        <div class="tile" style="grid-column:2;grid-row:3;background-position:20% 67%;"></div>
+        <div class="tile" style="grid-column:3;grid-row:3;background-position:40% 67%;"></div>
+        <div class="tile" style="grid-column:4;grid-row:3;background-position:60% 67%;"></div>
+        <div class="tile" style="grid-column:1;grid-row:4;background-position:0% 100%;"></div>
+        <div class="tile" style="grid-column:2;grid-row:4;background-position:20% 100%;"></div>
+        <div class="tile" style="grid-column:3;grid-row:4;background-position:40% 100%;"></div>
+        <div class="tile" style="grid-column:4;grid-row:4;background-position:60% 100%;"></div>
+        <div class="tile pill" style="grid-column:5;grid-row:2;background-position:80% 33%;"></div>
+        <div class="tile pill" style="grid-column:6;grid-row:3;background-position:100% 67%;"></div>
     </div>
   </div>
 </section>
