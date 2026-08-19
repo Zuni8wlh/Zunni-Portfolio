@@ -266,13 +266,13 @@
   .bento-grid{
     position:relative;
     display:grid; grid-template-columns:1fr 1.05fr; gap:30px;
-    margin-top:34px; align-items:start;
+    margin-top:34px; align-items:start; min-width:0;
   }
-  .bento-left{ display:flex; flex-direction:column; gap:30px; }
+  .bento-left{ display:flex; flex-direction:column; gap:30px; min-width:0; }
 
   .carousel-card{
     position:relative; width:calc(100% - 8px); max-width:calc(100% - 8px);
-    box-sizing:border-box; margin:0 4px 8px;
+    box-sizing:border-box; margin:0 4px 8px; min-width:0;
     background:#fff; border-radius:22px; padding:14px;
     display:flex; align-items:center; gap:10px;
     box-shadow:0 24px 46px rgba(20,16,8,.18);
@@ -286,7 +286,7 @@
   .car-arrow:active{ transform:scale(.92); }
   .car-track{
     display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory;
-    scrollbar-width:none; cursor:grab; flex:1;
+    scrollbar-width:none; cursor:grab; flex:1; min-width:0;
   }
   .car-track::-webkit-scrollbar{ display:none; }
   .car-track.dragging{ cursor:grabbing; scroll-snap-type:none; }
