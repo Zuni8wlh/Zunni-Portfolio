@@ -206,8 +206,8 @@
     .hero-actions{ top:14px; left:14px; }
     .hero-view-btn, .hero-contact-btn{ font-size:11.5px; padding:8px 14px; }
     .cards{
-      display:flex; grid-template-columns:unset; overflow-x:auto; scroll-snap-type:x mandatory;
-      scrollbar-width:none; gap:12px; margin:16px -4px 0; padding:0 4px 6px;
+      display:flex; grid-template-columns:unset; overflow-x:auto; overflow-y:visible; scroll-snap-type:x mandatory;
+      scrollbar-width:none; gap:12px; margin:16px -4px 0; padding:6px 4px 10px;
     }
     .cards::-webkit-scrollbar{ display:none; }
     .cards .card{
@@ -397,9 +397,9 @@
   }
   @media (max-width:600px){
     .bento-stage{ padding:18px; }
-    .car-item{ width:96px; height:122px; }
+    .car-item{ width:108px; height:148px; }
     .car-item span{ font-size:9.5px; padding:4px 8px; }
-    .carousel-card{ padding:10px; gap:6px; }
+    .carousel-card{ padding:18px 12px; gap:6px; }
     .car-track{ gap:6px; }
   }
 
@@ -489,7 +489,12 @@
   @media (max-width:860px){
     .mosaic-grid-wrap{ grid-template-columns:1fr; }
     .mosaic-navlinks a{ display:none; }
-    .mosaic-minicards{ flex-direction:column; }
+    .mosaic-actions{ gap:8px; flex-wrap:nowrap; }
+    .btn-red{ padding:11px 16px; font-size:12px; white-space:nowrap; }
+    .btn-ghost{ padding:11px 14px; font-size:12px; white-space:nowrap; gap:6px; }
+    .btn-ghost .play{ width:18px; height:18px; font-size:8px; flex:none; }
+    .mini-card{ padding:14px; min-height:100px; }
+    .mini-card h5{ font-size:12.5px; }
   }
 
   /* =========================================================
@@ -927,21 +932,21 @@
   </div>
 
   <div class="cards">
-    <div class="card reveal-el">
+    <div class="card">
       <div class="card-copy">
         <h4>I help brands find an identity that actually fits them</h4>
         <button class="btn">Explore</button>
       </div>
       <div class="mini-circles"><span class="m1"></span><span class="m2"></span></div>
     </div>
-    <div class="card reveal-el">
+    <div class="card">
       <div class="card-copy">
         <h4>Websites and platforms built around how the business really runs</h4>
         <button class="btn">Explore</button>
       </div>
       <div class="mini-circles"><span class="m1"></span><span class="m2"></span></div>
     </div>
-    <div class="card reveal-el">
+    <div class="card">
       <div class="card-copy">
         <h4>Communication that turns what you do into something people trust</h4>
         <button class="btn">Explore</button>
