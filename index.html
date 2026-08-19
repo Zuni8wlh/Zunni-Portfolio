@@ -124,13 +124,6 @@
     display:flex; flex-direction:column; justify-content:center;
     padding:0 34px;
   }
-  .circle.orange .arrow{
-    position:absolute; top:56px; left:34px;
-    width:30px; height:30px; border-radius:50%;
-    background:rgba(20,14,2,.15);
-    display:flex; align-items:center; justify-content:center;
-    font-size:14px; color:#171205;
-  }
   .circle.orange p{
     font-size:13.5px; line-height:1.5; font-weight:600; color:#1B1406;
     max-width:15ch;
@@ -156,17 +149,17 @@
       radial-gradient(circle at 50% 30%, #333336, #141416 70%);
   }
 
-  .center-wordmark{
-    position:relative; z-index:10; display:flex; align-items:center; gap:16px;
-    pointer-events:none;
-  }
-  .center-wordmark .word{
-    font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:44px;
-    color:#fff; letter-spacing:-.01em;
-  }
-  .center-wordmark .btn{
-    pointer-events:all; background:#fff; color:#111; border:none;
+  .hero-actions{
+    position:absolute; top:16px; left:16px; z-index:10;
     display:flex; align-items:center; gap:8px;
+  }
+  .hero-view-btn{
+    background:#fff; color:#111; border:none;
+    display:flex; align-items:center; gap:8px;
+  }
+  .hero-contact-btn{
+    background:rgba(255,255,255,.08); color:var(--text); border:1px solid rgba(255,255,255,.18);
+    text-decoration:none; display:inline-flex; align-items:center;
   }
 
   /* ---------------- CARDS ---------------- */
@@ -207,44 +200,45 @@
     .hero-visual{ height:230px; }
     .circle, .photo-slot{ width:190px; height:190px; }
     .circle.orange{ margin-left:-209px; padding:0 18px; }
-    .circle.orange .arrow{ top:26px; left:18px; width:24px; height:24px; }
     .circle.orange p{ font-size:11px; max-width:14ch; }
     .photo-slot.p1{ margin-left:-89px; }
     .photo-slot.p2{ margin-left:19px; }
-    .center-wordmark .word{ font-size:22px; }
-    .center-wordmark .btn{ font-size:12px; padding:9px 16px; }
+    .hero-actions{ top:14px; left:14px; }
+    .hero-view-btn, .hero-contact-btn{ font-size:11.5px; padding:8px 14px; }
     .cards{
       display:flex; grid-template-columns:unset; overflow-x:auto; scroll-snap-type:x mandatory;
-      scrollbar-width:none; gap:14px; margin:16px -4px 0; padding:0 4px 6px;
+      scrollbar-width:none; gap:12px; margin:16px -4px 0; padding:0 4px 6px;
     }
     .cards::-webkit-scrollbar{ display:none; }
     .cards .card{
-      flex:none; scroll-snap-align:start; width:78%; max-width:300px;
+      flex:none; scroll-snap-align:start; width:220px; min-height:auto;
+      padding:16px; gap:10px;
     }
+    .mini-circles{ width:58px; height:58px; }
+    .mini-circles .m1, .mini-circles .m2{ width:46px; height:46px; }
+    .mini-circles .m2{ left:20px; }
+    .card-copy h4{ font-size:13px; max-width:14ch; }
   }
   @media (max-width:600px){
     .hero-visual{ height:180px; }
     .circle, .photo-slot{ width:145px; height:145px; }
     .circle.orange{ margin-left:-147px; padding:0 14px; }
-    .circle.orange .arrow{ top:18px; left:14px; width:20px; height:20px; font-size:11px; }
     .circle.orange p{ font-size:9.5px; max-width:12ch; line-height:1.35; }
     .photo-slot.p1{ margin-left:-69px; }
     .photo-slot.p2{ margin-left:1px; }
-    .center-wordmark{ gap:8px; }
-    .center-wordmark .word{ font-size:17px; }
-    .center-wordmark .btn{ font-size:10.5px; padding:7px 12px; }
-    .cards .card{ width:84%; }
+    .hero-actions{ top:12px; left:12px; gap:6px; }
+    .hero-view-btn, .hero-contact-btn{ font-size:10.5px; padding:7px 12px; }
+    .cards .card{ width:190px; }
   }
   @media (max-width:380px){
     .hero-visual{ height:150px; }
     .circle, .photo-slot{ width:120px; height:120px; }
     .circle.orange{ margin-left:-116px; padding:0 12px; }
-    .circle.orange .arrow{ top:14px; left:12px; width:18px; height:18px; font-size:10px; }
     .circle.orange p{ font-size:8.5px; max-width:11ch; }
     .photo-slot.p1{ margin-left:-57px; }
     .photo-slot.p2{ margin-left:-4px; }
-    .center-wordmark .word{ display:none; }
-    .cards .card{ width:88%; }
+    .hero-contact-btn{ display:none; }
+    .cards .card{ width:170px; padding:14px; }
   }
 
   /* =========================================================
@@ -919,16 +913,16 @@
     <div class="side-icons">
       <span>▶</span><span>♪</span><span>↻</span>
     </div>
+    <div class="hero-actions">
+      <button class="btn hero-view-btn">View Work ↗</button>
+      <a href="mailto:zuniwasudhana8@gmail.com" class="btn hero-contact-btn">Get in touch</a>
+    </div>
     <div class="circle-cluster tilt-el" id="heroTilt" data-tilt-max="6">
       <div class="circle orange">
-        <span class="arrow">↗</span>
         <p>Where business thinking meets creative work</p>
       </div>
       <div class="photo-slot p1" style="background-size:cover;background-position:center;background-image:url('images/2.jpg');background-position:center 15%;background-size:cover;"></div>
       <div class="photo-slot p2" style="background-image:url('images/3.jpg');background-position:center 20%;background-size:cover;"></div>
-      <div class="center-wordmark">
-        <button class="btn">View Work ↗</button>
-      </div>
     </div>
   </div>
 
